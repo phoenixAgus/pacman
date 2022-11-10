@@ -59,16 +59,25 @@
 		<div id="fantasma">
 			<img src="images/fantasma.png">
 		</div>
-		<div class="puntito">
-			<img src="images/punto-grande.png">
-		</div>
 	</div>
 
 	<script type="text/javascript">
 		
 		var pacman = document.querySelector("#pacman");
 		var fantasmon = document.querySelector("#fantasma");
-		var pastillas = document.querySelector(".puntito");
+		//var pastillas = document.querySelector(".puntito");
+
+		for(i=0;i<10;i++){
+
+			var puntito = document.createElement("div");
+			puntito.className = "puntito";
+			puntito.innerHTML = '<img src="images/punto-grande.png">';
+			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+
+			document.getElementById("tablero").appendChild(puntito);
+		}
+
 		var posx = 0;
 		var posy = 0;
 		var xfan = 100;
@@ -78,12 +87,12 @@
 
 		//no mobiles
 		while(xfan == pilx && yfan == pily){
-		xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		pilx = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		pily = (Math.floor (Math.random()*(9-1+1))+1)*100;
+			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+			pilx = (Math.floor (Math.random()*(9-1+1))+1)*100;
+			pily = (Math.floor (Math.random()*(9-1+1))+1)*100;
 		}
-		pastillas.setAttribute("style","top:"+pily+"px; left:"+pilx+"px");
+		//pastillas.setAttribute("style","top:"+pily+"px; left:"+pilx+"px");
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
 		//pacman
