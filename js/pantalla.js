@@ -1,6 +1,7 @@
-var pacman = document.querySelector("#pacman");
+        var pacman = document.querySelector("#pacman");
 		var fantasmon = document.querySelector("#fantasma");
-
+        var pilx = [];
+        var pily = [];
 		
 		for(i=0;i<10;i++){
 
@@ -9,19 +10,23 @@ var pacman = document.querySelector("#pacman");
 			puntito.innerHTML = '<img src="images/punto-grande.png">';
 			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-
+            pilx[i] = puntito.style.left;
+            pily[i] = puntito.style.top;
 			document.getElementById("tablero").appendChild(puntito);
 		}
-
+        
 		var posx = 0;
 		var posy = 0;
 		var xfan = 100;
 		var yfan = 100;
+        var contador = 0;
 
-		//no mobiles
-		while(xfan ==  && yfan == ){
+		while(xfan == pilx[contador] && yfan == pily[contador] ){
 			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+            if (xfan == pilx[contador] && yfan == pily[contador]) {
+                contador = 0;
+            }
 		}
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
