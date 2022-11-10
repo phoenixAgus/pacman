@@ -1,0 +1,43 @@
+#tablero{
+			width: 1000px;
+			height: 1000px;
+			position: relative;
+			border:7px solid rgb(45, 8, 114);
+			background-color: #000000;
+			margin: auto
+		}
+
+		#pacman{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: 0.1s all;
+		}
+
+		#pacman img{
+			width: 100%
+		}
+
+		#fantasma{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#fantasma img{
+			width: 100%;
+		}
+
+		.puntito{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.puntito img{
+			width: 80%;
+		}
