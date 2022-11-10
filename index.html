@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style>
+		
+		#tablero{
+			width: 1000px;
+			height: 1000px;
+			position: relative;
+			border:7px solid rgb(45, 8, 114);
+			background-color: #000000;
+			margin: auto
+		}
+
+		#pacman{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: 0.1s all;
+		}
+
+		#pacman img{
+			width: 100%
+		}
+
+		#fantasma{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#fantasma img{
+			width: 100%;
+		}
+
+		.puntito{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.puntito img{
+			width: 80%;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="tablero">
+		<div id="pacman">
+			<img src="images/pacman.gif">
+		</div>
+		<div id="fantasma">
+			<img src="images/fantasma.png">
+		</div>
+		<div class="puntito">
+			<img src="images/punto-grande.png">
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		var pacman = document.querySelector("#pacman");
+		var fantasmon = document.querySelector("#fantasma");
+		var pastillas = document.querySelector(".puntito");
+		var posx = 0;
+		var posy = 0;
+		var xfan = 900;
+		var yfan = 900;
+
+		xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+
+		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
+
+		document.onkeydown = function(event){
+
+			switch (event.key) {
+				case "ArrowLeft":
+					posx=posx-100
+					if(posx<0){
+						posx=0
+					}
+					break;
+			
+				case "ArrowRight":
+					posx+=100
+					if(posx>900){
+						posx=900
+					}
+				break;
+
+				case "ArrowUp":
+					posy-=100
+					if(posy<0){
+						posy=0
+					}
+				break;
+
+				case "ArrowDown":
+					posy+=100
+					if(posy>900){
+						posy=900
+					}
+				break;
+
+				case "F5":
+				break;
+
+				default:
+					alert("Esto no va")
+				break;
+			}
+
+
+			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
+		}
+
+	</script>
+
+</body>
+</html>

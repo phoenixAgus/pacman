@@ -32,7 +32,7 @@
 
 	<div id="tablero">
 		<div id="pacman">
-			<img src="pacman.gif">
+			<img src="/images/pacman.gif">
 		</div>
 		<div id="fantama">
 			<img src="fantasma.jpg">
@@ -47,7 +47,6 @@
 		var posy = 0;
 
 		document.onkeydown = function(event){
-			console.log(event);
 
 			switch (event.key) {
 				case "ArrowLeft":
@@ -71,7 +70,7 @@
 					alert("Esto no va")
 				break;
 			}
-
+			console.log(posx)
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 		}
