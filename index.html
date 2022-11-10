@@ -71,14 +71,22 @@
 		var pastillas = document.querySelector(".puntito");
 		var posx = 0;
 		var posy = 0;
-		var xfan = 900;
-		var yfan = 900;
+		var xfan = 100;
+		var yfan = 100;
+		var pilx = 100;
+		var pily = 100;
 
+		//no mobiles
+		while(xfan == pilx && yfan == pily){
 		xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 		yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-
+		pilx = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		pily = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		}
+		pastillas.setAttribute("style","top:"+pily+"px; left:"+pilx+"px");
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
+		//pacman
 		document.onkeydown = function(event){
 
 			switch (event.key) {
