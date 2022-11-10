@@ -14,20 +14,14 @@
             pily[i] = puntito.style.top;
 			document.getElementById("tablero").appendChild(puntito);
 		}
-        
+		
 		var posx = 0;
 		var posy = 0;
-		var xfan = 100;
-		var yfan = 100;
-        var contador = 0;
+        var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+        var yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		
 
-		while(xfan == pilx[contador] && yfan == pily[contador] ){
-			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-            if (xfan == pilx[contador] && yfan == pily[contador]) {
-                contador = 0;
-            }
-		}
+
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
 		//pacman
