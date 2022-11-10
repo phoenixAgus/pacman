@@ -3,52 +3,7 @@
 <head>
 	<title></title>
 
-	<style>
-		
-		#tablero{
-			width: 1000px;
-			height: 1000px;
-			position: relative;
-			border:7px solid rgb(45, 8, 114);
-			background-color: #000000;
-			margin: auto
-		}
-
-		#pacman{
-			width: 100px;
-			height: 100px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			transition: 0.1s all;
-		}
-
-		#pacman img{
-			width: 100%
-		}
-
-		#fantasma{
-			width: 100px;
-			height: 100px;
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-		#fantasma img{
-			width: 100%;
-		}
-
-		.puntito{
-			width: 100px;
-			height: 100px;
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-		.puntito img{
-			width: 80%;
-		}
-	</style>
+	
 </head>
 <body>
 
@@ -63,82 +18,7 @@
 
 	<script type="text/javascript">
 		
-		var pacman = document.querySelector("#pacman");
-		var fantasmon = document.querySelector("#fantasma");
-		//var pastillas = document.querySelector(".puntito");
-
-		for(i=0;i<10;i++){
-
-			var puntito = document.createElement("div");
-			puntito.className = "puntito";
-			puntito.innerHTML = '<img src="images/punto-grande.png">';
-			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-
-			document.getElementById("tablero").appendChild(puntito);
-		}
-
-		var posx = 0;
-		var posy = 0;
-		var xfan = 100;
-		var yfan = 100;
-		var pilx = 100;
-		var pily = 100;
-
-		//no mobiles
-		while(xfan == pilx && yfan == pily){
-			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-			pilx = (Math.floor (Math.random()*(9-1+1))+1)*100;
-			pily = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		}
-		//pastillas.setAttribute("style","top:"+pily+"px; left:"+pilx+"px");
-		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
-
-		//pacman
-		document.onkeydown = function(event){
-
-			switch (event.key) {
-				case "ArrowLeft":
-					posx=posx-100
-					if(posx<0){
-						posx=0
-					}
-					break;
-			
-				case "ArrowRight":
-					posx+=100
-					if(posx>900){
-						posx=900
-					}
-				break;
-
-				case "ArrowUp":
-					posy-=100
-					if(posy<0){
-						posy=0
-					}
-				break;
-
-				case "ArrowDown":
-					posy+=100
-					if(posy>900){
-						posy=900
-					}
-				break;
-
-				case "F5":
-				break;
-
-				default:
-					alert("Esto no va")
-				break;
-			}
-
-
-			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
-		}
-
+		
 	</script>
 
 </body>
