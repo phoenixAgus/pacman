@@ -1,4 +1,5 @@
         var pacman = document.querySelector("#pacman");
+		var puntaje = 0;
 		var fantasmon = document.querySelector("#fantasma");
         var pilx = [];
         var pily = [];
@@ -10,6 +11,10 @@
 			puntito.innerHTML = '<img src="images/punto-grande.png">';
 			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+			while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
+				puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+				puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+			}
             pilx[i] = puntito.style.left;
             pily[i] = puntito.style.top;
 			document.getElementById("tablero").appendChild(puntito);
@@ -20,7 +25,10 @@
         var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
         var yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 		
-
+		while (pilx.indexOf(xfan + "px")!=(-1) && pily.indexOf(yfan + "px")!=(-1)){
+			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		}
 
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
