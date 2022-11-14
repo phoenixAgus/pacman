@@ -30,6 +30,10 @@
 		#fantasma img{
 			width: 100%;
 		}
+		#muerte{
+			display: none;
+			z-index: 8;
+		}
 
 		.puntito{
 			width: 100px;

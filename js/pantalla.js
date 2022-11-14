@@ -1,6 +1,7 @@
         var pacman = document.querySelector("#pacman");
 		var puntaje = 0;
 		var fantasmon = document.querySelector("#fantasma");
+		var muerte = document.querySelector("#muerte")
         var pilx = [];
         var pily = [];
 		
@@ -64,6 +65,34 @@
 					}
 				break;
 
+				case "A":
+					posx=posx-100
+					if(posx<0){
+						posx=0
+					}
+					break;
+			
+				case "D":
+					posx+=100
+					if(posx>900){
+						posx=900
+					}
+				break;
+
+				case "W":
+					posy-=100
+					if(posy<0){
+						posy=0
+					}
+				break;
+
+				case "S":
+					posy+=100
+					if(posy>900){
+						posy=900
+					}
+				break;
+
 				case "F5":
 				break;
 
@@ -74,4 +103,8 @@
 
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
+		}
+		if (posx == xfan && posy == yfan){
+			document.querySelector("#pacman").setAttribute("display: none;");
+			muerte.setAttribute("display: block");
 		}
