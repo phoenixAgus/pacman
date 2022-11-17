@@ -121,3 +121,6 @@
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 		}
+
+
+		
