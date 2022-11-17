@@ -121,3 +121,4 @@
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 		}
+		document.getElementById("puntaje").innerHTML = puntaje;
