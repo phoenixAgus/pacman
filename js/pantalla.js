@@ -9,7 +9,7 @@
 
 			var puntito = document.createElement("div");
 			puntito.className = "puntito";
-			puntito.innerHTML = '<img src="images/punto-grande.png">';
+			puntito.innerHTML = '<img src="images/puntito.png">';
 			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
@@ -110,3 +110,5 @@
 		}
 
 		
+
+
