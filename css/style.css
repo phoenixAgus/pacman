@@ -8,8 +8,8 @@
 		}
 
 		#pacman{
-			width: 100px;
-			height: 100px;
+			width: 80px;
+			height: 80px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -36,8 +36,8 @@
 		}
 
 		.puntito{
-			width: 100px;
-			height: 100px;
+			width: 60px;
+			height: 60px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -45,3 +45,28 @@
 		.puntito img{
 			width: 80%;
 		}
+
+		table{
+			
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 50%;
+			left: 1;
+
+		}
+
+		table, th, td {
+			border: 1px solid white;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			background-color: #000000;
+  			border-radius: 10px;
+			  padding-top: 10px;
+			  padding-bottom: 10px;
+			  padding-left: 10px;
+			  padding-right: 10px;
+			  color: rgb(255, 255, 255);
+		  }
+
