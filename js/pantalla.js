@@ -102,7 +102,7 @@
 			}
 
 			if (posx == xfan && posy == yfan){
-				console.log("pene")
+				console.log("muerte")
 				document.querySelector("#pacman").setAttribute("display", "none");
 				document.querySelector("#muerte").setAttribute("display", "block");	
 			}
