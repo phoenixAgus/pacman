@@ -45,3 +45,22 @@
 		.puntito img{
 			width: 80%;
 		}
+
+		table{
+			
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0;
+			left: 1;
+
+		}
+
+		table, th, td {
+			border: 1px solid white;
+			border-collapse: collapse;
+		  }
+		  th, td {
+			background-color: #b25eeb;
+		  }
+

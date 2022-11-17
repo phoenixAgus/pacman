@@ -108,3 +108,5 @@
 			document.querySelector("#pacman").setAttribute("display: none;");
 			muerte.setAttribute("display: block");
 		}
+
+		
