@@ -116,9 +116,9 @@
 					pilx.splice(guarda, 1);
 					pily.splice(guarda, 1);
 					puntaje++;
+					document.getElementById("puntaje").innerHTML = puntaje;
 				}
 			}
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 		}
-		document.getElementById("puntaje").innerHTML = puntaje;
