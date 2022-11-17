@@ -101,10 +101,23 @@
 				break;
 			}
 
+			if (posx == xfan && posy == yfan){
+				console.log("pene")
+				document.querySelector("#pacman").setAttribute("display", "none");
+				document.querySelector("#muerte").setAttribute("display", "block");	
+			}
+			if (pilx.indexOf(posx + "px")!=(-1) && pily.indexOf(posy + "px")!=(-1)){
+				console.log(posx);
+				console.log(posy);
+				if (pilx.indexOf(posx + "px") == pily.indexOf(posy + "px")){
+					console.log(pilx);
+					console.log(pily);
+					var guarda = pilx.indexOf(posx + "px");
+					pilx.splice(guarda, 1);
+					pily.splice(guarda, 1);
+					puntaje++;
+				}
+			}
 
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
-		}
-		if (posx == xfan && posy == yfan){
-			document.querySelector("#pacman").setAttribute("display: none;");
-			muerte.setAttribute("display: block");
 		}
