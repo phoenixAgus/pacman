@@ -1,9 +1,12 @@
-        var pacman = document.querySelector("#pacman");
+        var player = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
+		var pacman = document.querySelector("#pacman");
 		var puntaje = 0;
 		var fantasmon = document.querySelector("#fantasma");
 		var muerte = document.querySelector("#muerte")
         var pilx = [];
         var pily = [];
+		
+
 		
 		for(i=0;i<10;i++){
 
@@ -74,6 +77,35 @@
 			   document.querySelector("#pacman").style.display='none';
 			   document.querySelector("#muerte").style.display='block';
 		   }
+
+		    var coincidencias = [];  
+            for(i=0;i<pilx.length;i++){
+                
+                if(pilx[i] == posx + "px"){
+                	coincidencias.push(i);
+                    
+                }
+            }
+                    
+            for(j=0;j<coincidencias.length;j++){
+                        
+                console.log(pily[coincidencias[j]]);
+                if(pily[coincidencias[j]] == posy + "px"){
+                    console.log("pildora");
+					puntaje++;
+					document.getElementById("puntaje").innerHTML = puntaje;
+					pilx.splice(coincidencias[j], 1);
+					pily.splice(coincidencias[j], 1);
+					/*pilx.splice(coincidencias[j], 1);
+					pily.splice(pily[coincidencias[j]]);
+					pilx.splice(pilx[coincidencias[j]]);*/
+				}
+            }
+                
+            
+            }
+			
+		   /*
 		   if (pilx.indexOf(posx + "px")!=(-1) && pily.indexOf(posy + "px")!=(-1)){
 			   console.log(posx);
 			   console.log(posy);
@@ -82,10 +114,5 @@
 				   console.log(pilx);
 				   console.log(pily);
 				   var guarda = pilx.indexOf(posx + "px");
-				   pilx.splice(guarda, 1);
-				   pily.splice(guarda, 1);
-				   puntaje++;
-				   document.getElementById("puntaje").innerHTML = puntaje;
 			   }
-		   }
-		}
+		   }*/
