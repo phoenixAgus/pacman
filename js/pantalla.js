@@ -80,6 +80,7 @@
 					puntaje++;
 					document.getElementById("puntaje").innerHTML = puntaje;
 					pilx.splice(coincidencias[j], 1);
+					document.querySelector(".puntito").style.display='none';
 					pily.splice(coincidencias[j], 1);
 				}
 			}
