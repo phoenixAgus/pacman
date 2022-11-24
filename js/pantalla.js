@@ -1,13 +1,13 @@
         var player = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
+		var nombre = player;
 		var pacman = document.querySelector("#pacman");
 		var puntaje = 0;
 		var fantasmon = document.querySelector("#fantasma");
 		var muerte = document.querySelector("#muerte")
         var pilx = [];
         var pily = [];
-		
+		document.getElementById("nombre").innerHTML = nombre;
 
-		
 		for(i=0;i<10;i++){
 
 			var puntito = document.createElement("div");
