@@ -57,6 +57,7 @@
 		if (posx == xfan && posy == yfan){
 			console.log("muerte")
 				document.querySelector("#pacman").style.display='none';
+				document.querySelector(".puntito").style.display='none';
 				document.querySelector("#muerte").style.display='block';
 			}
 
