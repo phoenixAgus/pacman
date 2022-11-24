@@ -5,6 +5,7 @@
 			border:7px solid rgb(45, 8, 114);
 			background-color: #000000;
 			margin: auto
+			
 		}
 
 		#pacman{
@@ -30,19 +31,19 @@
 		}
 		#fantasma img{
 			width: 100%;
-			z-index: 0;
+			z-index: 2;
 		}
 		
 		#muerte {
 			display: none;
-			z-index:1;
+			
 		}
 
 		#muerte img{
 			
 			width: 1000px;
 			height: 1000px;
-			
+			z-index: 1;
 
 		}
 
@@ -53,9 +54,12 @@
 			top: 0;
 			left: 0;
 			
+			
+			
 		}
 		.puntito img{
 			width: 100%;
+			z-index: 0;
 		}
 
 		table{
@@ -94,7 +98,9 @@
 			top: 0;
 			left: 0;
 			display: none;
+			
 		  }
 		  .bloquecito img{
 			width: 100%;
+			z-index: 1;
 		  }
