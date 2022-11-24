@@ -57,6 +57,9 @@
 		.puntito img{
 			width: 100%;
 		}
+		.nopuntito{
+			display: none;
+		}
 
 		table{
 			
