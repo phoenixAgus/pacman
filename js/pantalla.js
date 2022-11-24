@@ -82,6 +82,7 @@
 			//Para los 40
 			if(puntaje == necesario){
 				if(necesario == 40){
+					document.querySelector("#win").style.display='block';
 					alert("felicidades, ganaste");
 				}
 				else{
