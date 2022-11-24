@@ -29,7 +29,6 @@
 			
 					case "ArrowRight":
 					posx+=100
-					console.log(pilx)
 					if(posx>900){
 						posx=900
 					}
@@ -55,7 +54,6 @@
 
 		//Colicion con Fantasma	
 		if (posx == xfan && posy == yfan){
-			console.log("muerte")
 				document.querySelector("#pacman").style.display='none';
 				document.querySelector(".puntito").style.display='none';
 				document.querySelector("#muerte").style.display='block';
@@ -72,15 +70,13 @@
 			}		
 			for(j=0;j<coincidencias.length;j++){
 							
-				console.log(pily[coincidencias[j]]);
 				if(pily[coincidencias[j]] == posy + "px"){
-					console.log("pildora");
 					puntaje++;
 					document.getElementById("puntaje").innerHTML = puntaje;
 					pilx.splice(coincidencias[j], 1);
-					blox[coincidencias[j]].setAttribute(display, block)
+					//blox[coincidencias[j]].setAttribute(display, block)
 					pily.splice(coincidencias[j], 1);
-					bloy[coincidencias[j]].setAttribute(display, block)
+					//bloy[coincidencias[j]].setAttribute(display, block)
 				}
 			}
 
@@ -103,25 +99,25 @@ function tablero (){
 	for(i=0;i<10;i++){
 		//posicion Pills
 		var puntito = document.createElement("div");
-		var bloque = document.createElement("div")
+		//var bloque = document.createElement("div")
 		puntito.className = "puntito";
-		bloque.className = "bloquecito"
+		//bloque.className = "bloquecito"
 		puntito.innerHTML = '<img src="images/puntito.png">';
-		bloque.innerHTML = '<imd src="images/bloquecito.png">';
+		//bloque.innerHTML = '<imd src="images/bloquecito.png">';
 		puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
 			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		}
-		bloque.style.top = puntito.style.top;
-		bloque.style.left = puntito.style.left;
+		//bloque.style.top = puntito.style.top;
+		//bloque.style.left = puntito.style.left;
 		pilx[i] = puntito.style.left;
-		blox[i] = bloque.style.left;
+		//blox[i] = bloque.style.left;
 		pily[i] = puntito.style.top;
-		bloy[i] = bloque.style.top;
+		//bloy[i] = bloque.style.top;
 		document.getElementById("tablero").appendChild(puntito);
-		document.getElementById("tablero").appendChild(bloque);
+		//document.getElementById("tablero").appendChild(bloque);
 	}
 
 
