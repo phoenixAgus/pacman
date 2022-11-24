@@ -7,6 +7,8 @@
 		var muerte = document.querySelector("#muerte")
         var pilx = [];
         var pily = [];
+		var blox = [];
+		var bloy = [];
 		var posx = 0;
 		var posy = 0;
 		var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
@@ -75,7 +77,9 @@
 					puntaje++;
 					document.getElementById("puntaje").innerHTML = puntaje;
 					pilx.splice(coincidencias[j], 1);
+					blox[coincidencias[j]].setAttribute(display, block)
 					pily.splice(coincidencias[j], 1);
+					bloy[coincidencias[j]].setAttribute(display, block)
 				}
 			}
 
@@ -98,17 +102,25 @@ function tablero (){
 	for(i=0;i<10;i++){
 		//posicion Pills
 		var puntito = document.createElement("div");
+		var bloque = document.createElement("div")
 		puntito.className = "puntito";
+		bloque.className = "bloquecito"
 		puntito.innerHTML = '<img src="images/puntito.png">';
+		bloque.innerHTML = '<imd src="images/bloquecito.png">';
 		puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
 			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
 		}
+		bloque.style.top = puntito.style.top;
+		bloque.style.left = puntito.style.left;
 		pilx[i] = puntito.style.left;
+		blox[i] = bloque.style.left;
 		pily[i] = puntito.style.top;
+		bloy[i] = bloque.style.top;
 		document.getElementById("tablero").appendChild(puntito);
+		document.getElementById("tablero").appendChild(bloque);
 	}
 
 

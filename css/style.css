@@ -57,9 +57,6 @@
 		.puntito img{
 			width: 100%;
 		}
-		.nopuntito{
-			display: none;
-		}
 
 		table{
 			
@@ -88,4 +85,16 @@
 		  #win img{
 			height: 1000px; 
 			width: 1000px;
+		  }
+
+		  .bloquecito{
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		  }
+		  .bloquecito img{
+			width: 100%;
 		  }
