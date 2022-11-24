@@ -1,4 +1,4 @@
-        //var 
+        //variables
 		var pacman = document.querySelector("#pacman");
 		var puntaje = 0;
 		var necesario = 10;
@@ -14,10 +14,7 @@
 		document.getElementById("nombre").innerHTML = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
 
 		tablero()
-//while(necesario > 49){
-	//while(puntaje > 10){
-		
-		//pacman
+		//Movimiento del pacman
 		document.onkeydown = function(event){
 			
 			switch (event.key) {
@@ -54,13 +51,12 @@
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 			
 
-		//Fantasma	
+		//Colicion con Fantasma	
 		if (posx == xfan && posy == yfan){
 			console.log("muerte")
 				document.querySelector("#pacman").style.display='none';
 				document.querySelector("#muerte").style.display='block';
 			}
-			
 
 			//Colision con Pills
 			var coincidencias = [];  
@@ -70,8 +66,7 @@
 					coincidencias.push(i);
 						
 				}
-			}
-						
+			}		
 			for(j=0;j<coincidencias.length;j++){
 							
 				console.log(pily[coincidencias[j]]);
@@ -80,10 +75,11 @@
 					puntaje++;
 					document.getElementById("puntaje").innerHTML = puntaje;
 					pilx.splice(coincidencias[j], 1);
-					document.querySelector(".puntito").style.display='none';
 					pily.splice(coincidencias[j], 1);
 				}
 			}
+
+			//Para los 40
 			if(puntaje == necesario){
 				if(necesario == 40){
 					alert("felicidades, ganaste");
@@ -96,7 +92,7 @@
 				}
 			}
         }
-	//}
+
 function tablero (){
 	for(i=0;i<10;i++){
 		//posicion Pills
