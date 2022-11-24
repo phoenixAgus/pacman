@@ -1,13 +1,18 @@
-        var player = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
-		var nombre = player;
+        //var 
 		var pacman = document.querySelector("#pacman");
 		var puntaje = 0;
+		var necesario = 10;
+		var fase = 1
 		var fantasmon = document.querySelector("#fantasma");
 		var muerte = document.querySelector("#muerte")
         var pilx = [];
         var pily = [];
-		document.getElementById("nombre").innerHTML = nombre;
+		var posx = 0;
+		var posy = 0;
+		document.getElementById("nombre").innerHTML = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
+		document.getElementById("fase").innerHTML = fase;
 
+		//posicion Pills
 		for(i=0;i<10;i++){
 
 			var puntito = document.createElement("div");
@@ -23,17 +28,15 @@
             pily[i] = puntito.style.top;
 			document.getElementById("tablero").appendChild(puntito);
 		}
-		
-		var posx = 0;
-		var posy = 0;
+
+
+		//Posicion del Fantasma
         var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
         var yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		
 		while (pilx.indexOf(xfan + "px")!=(-1) && pily.indexOf(yfan + "px")!=(-1)){
 			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 		}
-
 		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
 
 		//pacman
@@ -68,51 +71,37 @@
 					}
 				break;
            }
-
 			
-		   pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
-		   
-		   if (posx == xfan && posy == yfan){
-			   console.log("muerte")
-			   document.querySelector("#pacman").style.display='none';
-			   document.querySelector("#muerte").style.display='block';
-		   }
+			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
 
-		    var coincidencias = [];  
-            for(i=0;i<pilx.length;i++){
-                
-                if(pilx[i] == posx + "px"){
-                	coincidencias.push(i);
-                    
-                }
-            }
-                    
-            for(j=0;j<coincidencias.length;j++){
-                        
-                console.log(pily[coincidencias[j]]);
-                if(pily[coincidencias[j]] == posy + "px"){
-                    console.log("pildora");
+
+		//Fantasma	
+			if (posx == xfan && posy == yfan){
+				console.log("muerte")
+				document.querySelector("#pacman").style.display='none';
+				document.querySelector("#muerte").style.display='block';
+			}
+
+
+		//Colision con Pills
+			var coincidencias = [];  
+			for(i=0;i<pilx.length;i++){
+					
+				if(pilx[i] == posx + "px"){
+					coincidencias.push(i);
+						
+				}
+			}
+						
+			for(j=0;j<coincidencias.length;j++){
+							
+				console.log(pily[coincidencias[j]]);
+				if(pily[coincidencias[j]] == posy + "px"){
+					console.log("pildora");
 					puntaje++;
 					document.getElementById("puntaje").innerHTML = puntaje;
 					pilx.splice(coincidencias[j], 1);
 					pily.splice(coincidencias[j], 1);
-					/*pilx.splice(coincidencias[j], 1);
-					pily.splice(pily[coincidencias[j]]);
-					pilx.splice(pilx[coincidencias[j]]);*/
 				}
-            }
-                
-            
-            }
-			
-		   /*
-		   if (pilx.indexOf(posx + "px")!=(-1) && pily.indexOf(posy + "px")!=(-1)){
-			   console.log(posx);
-			   console.log(posy);
-			   console.log("pildora");
-			   if (pilx.indexOf(posx + "px") == pily.indexOf(posy + "px")){
-				   console.log(pilx);
-				   console.log(pily);
-				   var guarda = pilx.indexOf(posx + "px");
-			   }
-		   }*/
+			}
+        }
