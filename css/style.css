@@ -14,9 +14,11 @@
 			top: 0;
 			left: 0;
 			transition: 0.1s all;
+			z-index: 2;
 		}
 		#pacman img{
 			width: 100%
+			
 		}
 
 		#fantasma{
@@ -28,11 +30,20 @@
 		}
 		#fantasma img{
 			width: 100%;
+			z-index: 0;
 		}
 		
-		#muerte{
+		#muerte {
 			display: none;
-			z-index: 1;
+			z-index:1;
+		}
+
+		#muerte img{
+			
+			width: 1000px;
+			height: 1000px;
+			
+
 		}
 
 		.puntito{
@@ -41,6 +52,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
+			
 		}
 		.puntito img{
 			width: 100%;
