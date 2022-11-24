@@ -9,39 +9,17 @@
         var pily = [];
 		var posx = 0;
 		var posy = 0;
+		var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		var yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
 		document.getElementById("nombre").innerHTML = prompt("Hola Gamer, quieres jugar videojuegos?, introduce tu nombre");
-		document.getElementById("fase").innerHTML = fase;
 
-		//posicion Pills
-		for(i=0;i<10;i++){
-
-			var puntito = document.createElement("div");
-			puntito.className = "puntito";
-			puntito.innerHTML = '<img src="images/puntito.png">';
-			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-			while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
-				puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-				puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
-			}
-            pilx[i] = puntito.style.left;
-            pily[i] = puntito.style.top;
-			document.getElementById("tablero").appendChild(puntito);
-		}
-
-
-		//Posicion del Fantasma
-        var xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-        var yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		while (pilx.indexOf(xfan + "px")!=(-1) && pily.indexOf(yfan + "px")!=(-1)){
-			xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-			yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
-		}
-		fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
-
+		tablero()
+//while(necesario > 49){
+	//while(puntaje > 10){
+		
 		//pacman
 		document.onkeydown = function(event){
-
+			
 			switch (event.key) {
 				case "ArrowLeft":
 					posx=posx-100
@@ -50,15 +28,16 @@
 					}
 					break;
 			
-				case "ArrowRight":
+					case "ArrowRight":
 					posx+=100
+					console.log(pilx)
 					if(posx>900){
 						posx=900
 					}
-				break;
-
-				case "ArrowUp":
-					posy-=100
+					break;
+					
+					case "ArrowUp":
+						posy-=100
 					if(posy<0){
 						posy=0
 					}
@@ -73,20 +52,20 @@
            }
 			
 			pacman.setAttribute("style","top:"+posy+"px; left:"+posx+"px");
-
+			
 
 		//Fantasma	
-			if (posx == xfan && posy == yfan){
-				console.log("muerte")
+		if (posx == xfan && posy == yfan){
+			console.log("muerte")
 				document.querySelector("#pacman").style.display='none';
 				document.querySelector("#muerte").style.display='block';
 			}
+			
 
-
-		//Colision con Pills
+			//Colision con Pills
 			var coincidencias = [];  
 			for(i=0;i<pilx.length;i++){
-					
+				
 				if(pilx[i] == posx + "px"){
 					coincidencias.push(i);
 						
@@ -104,4 +83,41 @@
 					pily.splice(coincidencias[j], 1);
 				}
 			}
+			if(puntaje == necesario){
+				if(necesario == 40){
+					alert("felicidades, ganaste");
+				}
+				else{
+					necesario = necesario + 10;
+					fase++;
+					document.getElementById("fase").innerHTML = fase;
+					tablero();
+				}
+			}
         }
+	//}
+function tablero (){
+	for(i=0;i<10;i++){
+		//posicion Pills
+		var puntito = document.createElement("div");
+		puntito.className = "puntito";
+		puntito.innerHTML = '<img src="images/puntito.png">';
+		puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+		puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+		while (pilx.indexOf(puntito.style.left)!=(-1) && pily.indexOf(puntito.style.top)!=(-1)){
+			puntito.style.top = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+			puntito.style.left = (Math.floor (Math.random()*(9-1+1))+1)*100 + "px";
+		}
+		pilx[i] = puntito.style.left;
+		pily[i] = puntito.style.top;
+		document.getElementById("tablero").appendChild(puntito);
+	}
+
+
+	//Posicion del Fantasma
+	while (pilx.indexOf(xfan + "px")!=(-1) && pily.indexOf(yfan + "px")!=(-1)){
+		xfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+		yfan = (Math.floor (Math.random()*(9-1+1))+1)*100;
+	}
+	fantasmon.setAttribute("style","top:"+yfan+"px; left:"+xfan+"px");
+}
